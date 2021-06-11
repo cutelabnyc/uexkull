@@ -83,8 +83,8 @@ void UX_setWaveform(uexkull_t *self, waveform_t waveform);
  * function acts as a bridge between the Daisy's DSP library
  * and Cute-Op's mathematical sequence generating module.
  */
-float UX_processLeftBank(uexkull_t *self, float *gainCurve);
-float UX_processRightBank(uexkull_t *self, float *gainCurve);
+float UX_processLeftBank(uexkull_t *self, float fm, float am, float fmAtten, float amAtten, float *gainCurve);
+float UX_processRightBank(uexkull_t *self, float fm, float am, float fmAtten, float amAtten, float *gainCurve);
 
 
 #endif /* OPPORTUNITY_H */

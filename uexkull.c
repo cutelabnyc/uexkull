@@ -87,11 +87,11 @@ void UX_calculateLFOFrequencies(uexkull_t *self, float lfoFreq, float phaseOffse
     self->_lfoAmp = amplitudeOffset;
 }
 
-float UX_processLeftBank(uexkull_t *self, float *gainCurve)
+float UX_processLeftBank(uexkull_t *self, float fm, float am, float fmAtten, float amAtten, float *gainCurve)
 {
     float sig = 0;
-    bank_setFrequencies(&(self->bank[0]), self->freqArray[0], NUM_OSC, false);
-    bank_setFrequencies(&(self->lfo[0]), self->lfoFreqArray[0], NUM_OSC, true);
+    bank_setFrequencies(&(self->bank[0]), self->freqArray[0], fm, fmAtten, NUM_OSC, false);
+    bank_setFrequencies(&(self->lfo[0]), self->lfoFreqArray[0], fm, amAtten, NUM_OSC, true);
 
     float lfoValues[NUM_OSC];
     for (int i = 0; i < NUM_OSC; i++)
@@ -104,11 +104,11 @@ float UX_processLeftBank(uexkull_t *self, float *gainCurve)
     return sig;
 }
 
-float UX_processRightBank(uexkull_t *self, float *gainCurve)
+float UX_processRightBank(uexkull_t *self, float fm, float am, float fmAtten, float amAtten, float *gainCurve)
 {
     float sig = 0;
-    bank_setFrequencies(&(self->bank[1]), self->freqArray[1], NUM_OSC, false);
-    bank_setFrequencies(&(self->lfo[1]), self->lfoFreqArray[1], NUM_OSC, true);
+    bank_setFrequencies(&(self->bank[1]), self->freqArray[1], fm, fmAtten, NUM_OSC, false);
+    bank_setFrequencies(&(self->lfo[1]), self->lfoFreqArray[1], fm, amAtten, NUM_OSC, true);
 
     float lfoValues[NUM_OSC];
     for (int i = 0; i < NUM_OSC; i++)
