@@ -11,7 +11,7 @@
 #ifndef UEXKULL_H
 #define UEXKULL_H
 
-#define NUM_OSC 6
+#define NUM_OSC 4
 #define NUM_BANKS 2
 #define MAX_FREQ (SAMPLE_RATE / 2)
 #define NUM_DIFFRACTION_CONSTANTS 5
